@@ -117,11 +117,18 @@ class Login extends Component {
   }
 }
 
-const api = createApi(() =>
-  Promise.resolve({
-    ok: true,
-    json: () => ({ email: 'dummy@example.com' })
-  })
+const api = createApi(
+  () =>
+    new Promise(resolve =>
+      setTimeout(
+        () =>
+          resolve({
+            ok: true,
+            json: () => ({ email: 'dummy@example.com' })
+          }),
+        1500
+      )
+    )
 );
 
 const loginAction = createLoginAction(api);
