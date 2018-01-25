@@ -10,7 +10,7 @@ class ProfileLink extends Component {
     const props = this.props;
     return props.user ? (
       <li className="nav-item">
-        <a className="nav-link" onClick={this.logout}>
+        <a className="nav-link" href="/logout" onClick={this.logout}>
           {props.user.email}
         </a>
       </li>
