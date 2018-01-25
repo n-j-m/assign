@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
+import redirect from '../utils/redirect';
 import { logout } from '../redux/actions';
 import NavLink from './NavLink';
 
@@ -9,7 +10,7 @@ class ProfileLink extends Component {
     const props = this.props;
     return props.user ? (
       <li className="nav-item">
-        <a className="nav-link" onClick={_ => props.logout()}>
+        <a className="nav-link" onClick={this.logout}>
           {props.user.email}
         </a>
       </li>
@@ -19,6 +20,13 @@ class ProfileLink extends Component {
       </NavLink>
     );
   }
+
+  logout = e => {
+    e.preventDefault();
+
+    this.props.logout();
+    redirect('/login');
+  };
 }
 
 const mapDispatchToProps = dispatch => ({
