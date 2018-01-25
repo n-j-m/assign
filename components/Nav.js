@@ -5,7 +5,6 @@ import ProfileLink from './ProfileLink';
 
 class Nav extends Component {
   constructor(props, context) {
-    console.log('nav ctor:', props, context);
     super(props, context);
   }
   render() {
